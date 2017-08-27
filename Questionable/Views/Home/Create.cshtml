@@ -1,0 +1,51 @@
+﻿@model CreateQuizViewModel
+@{
+	ViewBag.Title = "Home Page";
+}
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2">
+
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2">
+		<h3>Create Your Quiz!</h3>
+		<div class="well">
+			<form method="post"  asp-antiforgery="true">
+				<div class="well-lg form-horizontal">
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<label class="control-label h4" asp-for="Name"></label>
+							<input class="form-control" asp-for="Name" placeholder="Enter the name of your quiz here." />
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-sm-6">
+							<label class="control-label h4" asp-for="Creator"></label>
+							<input class="form-control" asp-for="Creator" placeholder="Enter your name." />
+						</div>
+					</div>
+					<input class="form-control hidden" asp-for="Questions" />
+					<div class="row">
+						<label class="h4" asp-for="Questions"></label>
+						<ul id="questionNav" class="nav nav-tabs">
+							<li id="newTabLi"><a id="newTabBtn">+</a></li>
+						</ul>
+					</div>
+					<div id="questionGroup" class="form-group">
+					</div>
+					<div id="buttonsGroup" class="form-group">
+						<input id="submitBtn" class="btn btn-default" type="submit" />
+						<button type="button" id="addQuestionBtn" class="btn btn-default">New Question</button>
+					</div>
+					<input id="hiddenQuestions" class="hidden" />
+					<div class="form-group">
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="~/css/create.css" />
+<script src="~/js/home/create.js"></script>

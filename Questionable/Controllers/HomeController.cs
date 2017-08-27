@@ -1,33 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Questionable.Models;
+using Questionable.ViewModels;
 
 namespace Questionable.Controllers
 {
-    public class HomeController : Controller
+	public class HomeController : Controller
     {
-        public IActionResult Index()
+       public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+		[Route("/about")]
+		public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
+		[Route("/contact")]
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
+
+		[Route("/create")]
+		[HttpGet]
+		public IActionResult Create()
+		{
+			return View();
+		}
+
+		[Route("/create")]
+		public IActionResult Create(CreateQuizViewModel model)
+		{
+//			if (ModelState.IsValid)
+//			{
+				foreach(var i in Request.Form)
+				{
+					System.Console.WriteLine(i.Value.ToString());
+				}
+//			}
+			return View();
+		}
 
         public IActionResult Error()
         {
